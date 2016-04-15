@@ -4,9 +4,11 @@ import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.exceptions.OAuth2ValidationException
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
 import grails.core.GrailsApplication
+import grails.transaction.Transactional
 import org.springframework.security.oauth2.provider.OAuth2Authentication
 import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices
 
+@Transactional(readOnly = true)
 class GormAuthorizationCodeService extends RandomValueAuthorizationCodeServices {
 
     OAuth2AuthenticationSerializer oauth2AuthenticationSerializer
